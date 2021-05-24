@@ -1,38 +1,259 @@
-.App {
-  text-align: center;
+.header {
+	position: fixed;
+	/* overflow: hidden; */
+	left: 0;
+	top: 0;
+	background: #fffdd0;
+	font-family: bold;
+	font-size: 40px;
+	color: #FFFFFF;
+	border-bottom: 5px solid #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.post-link {
+	font-family: bold;
+	text-align: top;
+	color: #FF0000;
+	margin-left: 850px;
+	font-size: 30px;
+	vertical-align: 7px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.view-link {
+	font-family: bold;
+	text-align: top;
+	color: #FF0000;
+	margin-left: 90px;
+	font-size: 30px;
+	vertical-align: 7px;
+	padding-right: 70px;
+}
+
+.view-link1 {
+	font-family: bold;
+	text-align: top;
+	color: #FF0000;
+	margin-left: 900px;
+	font-size: 30px;
+	vertical-align: 7px;
+	padding-right: 50px;
+}
+
+.viewall-link {
+	font-family: bold;
+	text-align: top;
+	color: #FF0000;
+	margin-left: 15px;
+	font-size: 30px;
+	vertical-align: 7px;
+}
+
+.viewall-link1 {
+	font-family: bold;
+	text-align: top;
+	color: #FF0000;
+	margin-left: 15px;
+	font-size: 30px;
+	vertical-align: 7px;
+	padding-right: 55px;
+}
+
+.color-nav {
+	background-color: #fffdd0;
+	height: 60px;
+}
+
+.tweet {
+	font-family: bold;
+	font-size: 50px;
+	color: #FF0000;
+}
+
+.home {
+	background-image: url('./social.png');
+	background-size: cover;
+	height: 100vh;
+	/* padding-left: 200px; */
+}
+
+.content {
+	/* margin-top: 70px; */
+	padding-top: 270px;
+	font-family: cursive;
+	font-size: 20px;
+	margin-left: 150px;
+}
+
+.login {
+	background-image: url('./loginpage.png');
+	background-size: cover;
+	height: 100vh;
+	color: #f5f5f5a1;
+}
+
+.regpage {
+	background-image: url('./reg.png');
+	background-size: cover;
+	height: 100vh;
+	color: #f5f5f5a1;
+}
+
+#align {
+	padding-top: 280px;
+	font-family: caliber;
+	font-size: 20px;
+	margin-left: 170px;
+	/* padding-bottom: 280px; */
+}
+
+#loginbutton {
+	font-family: bold;
+	font-size: 25px;
+	margin-left: 180px;
+}
+
+.buttonalign {
+	height: 65px;
+	width: 155px;
+	color: #FF0000
+}
+
+#uipost {
+	padding-top: 150px;
+	/* margin-top: 140px;  */
+	padding-left: 650px;
+}
+
+.viewui1 {
+	/* margin-top: 150px; */
+	/* margin-left: 300px; */
+	margin: 0 auto;
+	float: none;
+	margin-bottom: 20px;
+}
+
+#postbutton {
+	margin-left: 50px;
+}
+
+#post {
+	margin-left: -80px;
+}
+
+.footer {
+	color: #FFFFFF;
+	height: 60px;
+	font-family: caliber;
+	font-size: 20px;
+}
+
+#ui1 {
+	padding-top: 200px;
+	padding-left: 430px;
+	/* padding-right: 10px; */
+	color: hsl(214, 77%, 43%);
+	font-family: cursive;
+	font-size: 20px;
+	/* margin-top: 70px; */
+	/* border-radius: 10px; */
+}
+
+#ui {
+	padding-top: 140px;
+}
+
+#border {
+	border-radius: 10px;
+	/* box-shadow: 0 0 10px 0 #000; */
+	/* padding: 20px 30px; */
+	padding-top: 0px;
+	background-color: #bcb6be;
+	height: 450px;
+	width: 800px;
+}
+
+.contentBody {
+	padding-top: 95px;
+	padding-bottom: 85px;
+}
+
+#buttonlogin {
+	padding: 10px;
+}
+
+#regbutton {
+	margin-left: 230px;
+}
+
+#postb {
+	width: 90px;
+}
+
+#loginbutton {
+	margin-left: 80px;
+	width: 120px;
+	color: hsl(214, 71%, 24%);
+}
+
+#messageColor {
+	color: lavender;
+}
+
+.likes {
+	padding-left: 5px;
+	/* padding :15px; */
+}
+
+#invalid{
+	color: ivory;
+}
+.tablealign{
+	padding-top: 140px;
+	/* width: 200px; */
+}
+#outline{
+	border: none;
+}
+.card{
+	border: none;
+}
+#reply { 
+	/* This bit sets up the horizontal layout */
+	 display:flex;
+	flex-direction:row; 
+	
+	/* This bit draws the box around it */
+	border:1px solid grey;
+  
+	/* I've used padding so you can see the edges of the elements. */
+	padding:2px;
+   }
+  
+  input {
+	/* Tell the input to use all the available space */
+	flex-grow:2;
+	/* And hide the input's outline, so the form looks like the outline */
+	border:none;
+	padding: 5px;
+	
+	
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  input:focus {
+	/* removing the input focus blue box. Put this on the form if you like. */
+	outline: none;
+	
+     
   }
-  to {
-    transform: rotate(360deg);
+  
+  button {
+	/* Just a little styling to make it pretty */
+	/* border:1px solid blue; */
+	background:rgb(128, 128, 245);
+	color:white;
+	width:70px;
   }
+#collapse{
+	width: fit-content;
+	
 }
