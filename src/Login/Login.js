@@ -16,30 +16,25 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  validate = (loginId, passWord) => {
-    // const errors = [];
-    if (!validator.isEmail(loginId)) {
-      alert("Enter valid Email")
-      // errors.push("Enter valid Email")
-    }
+  // validate = (loginId, passWord) => {
+  //    const errors = [];
+  //    var passw=  /^[A-Za-z]\w{7,14}$/;
+  //   if (!validator.isEmail(loginId)) {
+  //   //  alert("Enter valid Email")
+  //      errors.push("Enter valid Email")
+  //   }
 
-    if (!validator.isStrongPassword(passWord,
-      {
-        minLength: 6, minLowercase: 1,
-        minUppercase: 1, minNumbers: 1, minSymbols: 1
-      }
-    )) {
-      alert("Password is not strong")
-      // errors.push("Password is not strong")
-    }
-
-    // return errors;
-  }
+  //   if(passWord.match(passw) == false ){
+  //     alert("Password should contain at least one numeric digit, one uppercase and one lowercase letter ")
+  //     errors.push("Password should contain at least one numeric digit, one uppercase and one lowercase letter ")
+  //   }
+  //    return errors;
+  // }
   handleSubmit(e) {
     console.log("Inside handle submit functin")
     e.preventDefault();
-    const { loginId, passWord } = this.state;
-    // const errors = this.validate(email, password);
+    // const { loginId, passWord } = this.state;
+    // const errors = this.validate(loginId, passWord);
     // if (errors.length > 0) {
     //   this.setState({ errors });
     //   return;
@@ -70,11 +65,8 @@ class Login extends React.Component {
 
     let credentials = btoa(this.state.loginId + ':' + this.state.passWord)
 
+  //  const data1 = await axios.get('http://localhost:9500/v1/User/register?loginId='+this.state.loginId)
 
-
-
-
-    console.log('user login')
     const data = await axios.get('http://localhost:9500/v1/User/loginUsers', {
       headers: {
         "Authorization": "Basic " + credentials
@@ -113,10 +105,11 @@ class Login extends React.Component {
       <div className="login">
         <div id="ui1">
           <div className="col d-flex justify-content-center " >
-            <div id="errormsg">  {errors.map(error => (
+            <div id="errormsg" style={{position: 'absolute',marginTop: '-110px', color: 'red'}}>  {errors.map(error => (
               <p data-testid='p' key={error}>Error: {error}</p>
             ))}</div>
             <Form onSubmit={this.handleSubmit}>
+          
               <Row>
                 <Col>
                   <Form.Label>Login Id</Form.Label>
@@ -146,12 +139,13 @@ class Login extends React.Component {
                 </Col>
               </Row>
               <Row>
-                <Nav.Link href="/forgot">Forgot Password</Nav.Link>
-                <Nav.Link href="/">Sign Up</Nav.Link>
+                <Nav.Link style={{textDecoration: 'underline'}} href="/forgot">Forgot Password</Nav.Link>
+                <Nav.Link  style={{textDecoration: 'underline'}} href="/">Sign Up</Nav.Link>
               </Row><br />
               <div >
-                <button className="btn btn-secondary " id="loginbutton">Login</button>
+                <button id="loginbutton">Login</button>
               </div>
+           
             </Form>
           </div>
         </div>

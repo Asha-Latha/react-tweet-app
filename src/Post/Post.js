@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.png';
+import logo from '../3t.png';
 import { Navbar, Form, Button } from 'react-bootstrap';
 import '../App.css';
 import axios from 'axios';
@@ -72,8 +72,8 @@ class Post extends React.Component {
                 <div className="header">
 
                     <Navbar className="color-nav" fixed="top"    >
-                        <h className="tweet">tweet</h> &nbsp;
-                    <img style={{ width: "45px", height: "45px" }}
+                        <h className="tweet">Tweet</h> &nbsp;
+                    <img style={{ width: "50px", height: "50px" }}
                             src={this.state.imageURL}
                             alt="" />
                         <Navbar.Brand className="view-link1" href="/viewTweet" > View </Navbar.Brand>
@@ -90,25 +90,26 @@ class Post extends React.Component {
 
                         <div className="mb-3">
                             <Form.File id="formcheck-api-regular">
-                                <Form.File.Label>Regular file input</Form.File.Label>
+                                <Form.File.Label style={{fontFamily: 'normal', fontStyle: 'italic', fontSize: '20px'}}>Drop in Files: </Form.File.Label>
                                 <Form.File.Input />
                             </Form.File>
                         </div>
                         <br />
                         <div >
+                            <h5 style={{color: 'blueviolet'}}>Post your tweet:</h5>
                             <textarea id="post" name="post" rows="5" cols="44" onChange={this.getTweetMessage} ></textarea>
                         </div>
                         <br />
-                        <Form.Row>
+                        <Form.Row style={{marginRight: '0px'}}>
                             <Form.Group controlId="formGridCity" >
 
-                                <Form.Control placeholder="hashtag" onChange={this.getHashTag} />
+                                <Form.Control placeholder="#hashtag" onChange={this.getHashTag} />
                             </Form.Group>
                         </Form.Row>
 
 
                         <div id="postbutton" >
-                            <button className="btn btn-secondary " id="postb">Post</button>
+                            <button  id="postb">Post</button>
                             {/* <Button variant="primary" id="postb">Post</Button>{' '} */}
                             {/* <button class="btn btn-primary btn-lock btn-lg "  name="submit" type="submit"  >Post</button> */}
                         </div>

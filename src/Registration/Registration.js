@@ -26,6 +26,7 @@ class Registration extends React.Component {
 
   validate = (firstName, lastName, mailId, passWord, confirmPassword, loginId, contactNumber) => {
     const errors = [];
+    var passw=  /^[A-Za-z]\w{7,14}$/;
     if (firstName.length <= 0) {
       alert("FirstName should not be empty")
       errors.push("FirstName should not be empty")
@@ -43,30 +44,43 @@ class Registration extends React.Component {
       errors.push("Enter valid Email")
     }
 
-    // if (mailId.length < 5) {
-    //     errors.push("Email should be at least 5 charcters long");
-    // }
-    // if (mailId.split("").filter(x => x === "@").length !== 1) {
-    //     errors.push("Email should contain a @");
-    // }
-    // if (mailId.indexOf(".") === -1) {
-    //     errors.push("Email should contain at least one dot");
-    // }
-
-    if (!validator.isStrongPassword(passWord,
-      {
-        minLength: 6, minLowercase: 1,
-        minUppercase: 1, minNumbers: 1, minSymbols: 1
-      }
-    )) {
-      alert("Password is not strong")
-      errors.push("Password is not strong")
+    if (mailId.length < 5) {
+        errors.push("Email should be at least 5 charcters long");
     }
-    if (passWord != confirmPassword) {
-      alert("Password and Confirm Password doesnot match")
-      errors.push("Password and Confirm Password doesnot match");
-
+    if (mailId.split("").filter(x => x === "@").length !== 1) {
+        errors.push("Email should contain a @");
     }
+    if (mailId.indexOf(".") === -1) {
+        errors.push("Email should contain at least one dot");
+    }
+
+    // if (!validator.isStrongPassword(passWord,
+    //   {
+    //     minLength: 6, minLowercase: 1,
+    //     minUppercase: 1, minNumbers: 1, minSymbols: 1
+    //   }
+    // )) {
+    //   alert("Password is not strong")
+    //   errors.push("Password is not strong")
+    // }
+    // if (passWord != confirmPassword) {
+    //   alert("Password and Confirm Password doesnot match")
+    //   errors.push("Password and Confirm Password doesnot match");
+
+    // }
+   
+
+    if(passWord.match(passw) == false ){
+      alert("Password should contain at least one numeric digit, one uppercase and one lowercase letter ")
+      errors.push("Password should contain at least one numeric digit, one uppercase and one lowercase letter ")
+    }
+    console.log(passWord)
+    console.log(confirmPassword)
+  if(passWord !== confirmPassword){
+    alert('Password doesnt match')
+  }
+
+
     if (contactNumber.length < 10) {
       alert("Enter valid mobile number")
       errors.push("Enter valid mobile number")
@@ -112,15 +126,19 @@ class Registration extends React.Component {
 
   }
 
+  getConfirmPassword =(e) => {
+    this.setState({confirmPassword: e.target.value})
+  }
+
   handleSubmit(e) {
     console.log("Inside register handle submit function")
     e.preventDefault();
-    // const { firstName, lastName, mailId, passWord,confirmPassword,loginId,contactNumber } = this.state;
-    // const errors = this.validate(firstName, lastName, mailId, passWord,confirmPassword, loginId,contactNumber);
-    // if (errors.length > 0) {
-    //     this.setState({ errors });
-    //     return;
-    // }
+    const { firstName, lastName, mailId, passWord,confirmPassword,loginId,contactNumber } = this.state;
+    const errors = this.validate(firstName, lastName, mailId, passWord,confirmPassword, loginId,contactNumber);
+    if (errors.length > 0) {
+        this.setState({ errors });
+        return;
+    }
     this.register()
   }
 
@@ -165,11 +183,15 @@ class Registration extends React.Component {
           {/* <span className="block-example border border-dark"> */}
 
           <div className="col d-flex justify-content-center " >
+            <h2 style={{marginTop: '-78px', position: 'absolute'}}>Register</h2>
+            {/* <div id="errormsg" style={{position: 'absolute',marginTop: '-110px', color: 'red'}}>  {errors.map(error => (
+               <p data-testid='p' key={error}>Error: {error}</p>
+               ))}</div> */}
 
             <Form onSubmit={this.handleSubmit} >
 
-              {errors.message}
-              {/* {errors.map(d => <div id="invalid">{d.message}</div>)} */}
+              {/* {errors.message}
+              {errors.map(d => <div id="invalid">{d.message}</div>)} */}
 
 
               <Row>
@@ -242,23 +264,23 @@ class Registration extends React.Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><i class="material-icons">lock</i></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <Form.Control type="password" placeholder="Confirm Password" />
+                    <Form.Control name="confirmPassword" type="password" placeholder="Confirm Password" onChange={this.getConfirmPassword} />
                   </InputGroup>
                 </Col>
               </Row>
               <div ><br />
 
                 <div >
-                  <button className="btn btn-secondary " id="regbutton" >SignUp</button>
+                  <button  id="regbutton" >SignUp</button>
                 </div>
 
                 <div>
                   <Row>
                     <Col>
-                      <p> Already a user??</p>
+                      <p style={{marginTop: '13px'}}> Already a user??</p>
                     </Col>
                     <Col>
-                      <Nav.Link href="/login">Click here to Login </Nav.Link>
+                      <Nav.Link  style={{textDecoration: 'underline'}} href="/login">Click here to Login </Nav.Link>
                     </Col>
                   </Row>
                 </div>

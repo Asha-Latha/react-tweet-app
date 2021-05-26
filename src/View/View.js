@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../logo.png';
-import scenary from '../scenary.png'
+import logo from '../3t.png';
+import scenary from '../userimag.jpg'
 import like1 from '../like1.png';
 import like2 from '../like2.png'
 import UncontrolledCollapse from 'reactstrap';
@@ -223,8 +223,8 @@ class View extends React.Component {
                                             <Col>
 
                                                 <div >
-                                                    <Button id="collapse" onClick={() => this.collapse()}>
-                                                        .
+                                                    <Button id="collapse" onClick={() => this.collapse()}>Select
+                                                        
            </Button>
                                                     <Collapse in={this.state.open}>
                                                         <div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../logo.png';
-import scenary from '../scenary.png'
+import logo from '../3t.png';
+import scenary from '../userimag.jpg'
 import like1 from '../like1.png';
 import like2 from '../like2.png'
 import UncontrolledCollapse from 'reactstrap';
@@ -188,7 +188,7 @@ class ViewAll extends React.Component {
 
                             <Navbar className="color-nav" fixed="top"    >
                                 <h className="tweet">tweet</h> &nbsp;
-                    <img style={{ width: "45px", height: "45px" }}
+                    <img style={{ width: "50px", height: "50px" }}
                                     src={this.state.imageURL}
                                     alt="" />
                                 <Navbar.Brand className="view-link1" href="/post" > Post </Navbar.Brand>

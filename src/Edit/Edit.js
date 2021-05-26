@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.png';
+import logo from '../3t.png';
 import { Navbar, Form, Button } from 'react-bootstrap';
 import '../App.css';
 import axios from 'axios';
@@ -103,8 +103,8 @@ class Edit extends React.Component {
                 <div className="header">
 
                     <Navbar className="color-nav" fixed="top"    >
-                        <h className="tweet">tweet</h> &nbsp;
-                    <img style={{ width: "45px", height: "45px" }}
+                        <h className="tweet">Tweet</h> &nbsp;
+                    <img style={{ width: "50px", height: "50px" }}
                             src={this.state.imageURL}
                             alt="" />
                         <Navbar.Brand className="view-link1" href="/viewTweet" > View </Navbar.Brand>
