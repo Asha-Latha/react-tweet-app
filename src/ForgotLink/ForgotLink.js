@@ -81,8 +81,6 @@ class ForgotLink extends React.Component {
             })
 
         // return errors;
-
-
     }
 
     render() {
@@ -91,11 +89,7 @@ class ForgotLink extends React.Component {
             <div className="login">
                 <div id="ui1">
                     <div className="col d-flex justify-content-center " >
-
-
-
                         <Form onSubmit={this.handleSubmit}>
-
                             <p id="messageColor">{errors}</p>
                             <Row>
                                 <Col>

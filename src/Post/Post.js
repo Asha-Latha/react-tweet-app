@@ -5,7 +5,6 @@ import '../App.css';
 import axios from 'axios';
 
 class Post extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +23,6 @@ class Post extends React.Component {
     getHashTag = (e) => {
         this.setState({ hashTag: e.target.value })
     }
-
 
     handleSubmit(e) {
         console.log("Inside add post handle submit functin")
@@ -62,11 +60,7 @@ class Post extends React.Component {
                 console.error(error);
             })
     }
-
-
-
     render() {
-        // const imageURL = logo;
         return (
             <>
                 <div className="header">
@@ -79,45 +73,33 @@ class Post extends React.Component {
                         <Navbar.Brand className="view-link1" href="/viewTweet" > View </Navbar.Brand>
                         <Navbar.Brand className="viewall-link1" href="/viewAllTweets" > ViewAll </Navbar.Brand>
                         <Button href="/">Logout</Button> {' '}
-
-
                     </Navbar>
                 </div>
 
                 <div id="uipost">
                     <Form onSubmit={this.handleSubmit}>
-
-
                         <div className="mb-3">
                             <Form.File id="formcheck-api-regular">
-                                <Form.File.Label style={{fontFamily: 'normal', fontStyle: 'italic', fontSize: '20px'}}>Drop in Files: </Form.File.Label>
+                                <Form.File.Label style={{ fontFamily: 'normal', fontStyle: 'italic', fontSize: '20px' }}>Drop in Files: </Form.File.Label>
                                 <Form.File.Input />
                             </Form.File>
                         </div>
                         <br />
                         <div >
-                            <h5 style={{color: 'blueviolet'}}>Post your tweet:</h5>
+                            <h5 style={{ color: 'blueviolet' }}>Post your tweet:</h5>
                             <textarea id="post" name="post" rows="5" cols="44" onChange={this.getTweetMessage} ></textarea>
                         </div>
                         <br />
-                        <Form.Row style={{marginRight: '0px'}}>
+                        <Form.Row style={{ marginRight: '0px' }}>
                             <Form.Group controlId="formGridCity" >
-
                                 <Form.Control placeholder="#hashtag" onChange={this.getHashTag} />
                             </Form.Group>
                         </Form.Row>
-
-
                         <div id="postbutton" >
-                            <button  id="postb">Post</button>
-                            {/* <Button variant="primary" id="postb">Post</Button>{' '} */}
-                            {/* <button class="btn btn-primary btn-lock btn-lg "  name="submit" type="submit"  >Post</button> */}
+                            <button id="postb">Post</button>
                         </div>
                     </Form>
                 </div>
-
-
-
                 <div>
                     <Navbar fixed="bottom" bg="dark" className="footer" >
                         Copyright @ 2021

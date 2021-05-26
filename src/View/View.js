@@ -54,14 +54,11 @@ class View extends React.Component {
         // console.log("Before click" + this.state.open);
         const toggle = !this.state.open
         // console.log(toggle);
-
-
         this.setState({
 
             open: toggle
         });
         // console.log("After click" + this.state.open);
-
     }
     contentChange = () => {
         // this.setState({
@@ -137,21 +134,13 @@ class View extends React.Component {
                         console.log("Calling tweet by User");
                         this.setState({ data: JSON.parse(JSON.stringify(res.data)) })
                         console.log(res);
-
-
                     })
-
 
             }, error => {
                 console.error(error);
             })
-
-
     }
     componentDidMount = () => {
-
-
-
         const headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -179,8 +168,6 @@ class View extends React.Component {
 
     render() {
         const { data } = this.state;
-        // console.log("Inside render")
-        // console.log(data)
         return (
             <>
                 <div>
@@ -199,47 +186,27 @@ class View extends React.Component {
                                 <Navbar.Brand className="viewall-link1" href="/viewAllTweets" > ViewAll </Navbar.Brand>
                                 <Button href="/">Logout</Button> {' '}
                             </Navbar>
-
-
                         </div>
 
                     </Headroom>
                     <div className="contentBody">
-
-
                         {this.state.data.map(element => {
-
-
                             return <div>
-
                                 <div className="col d-flex justify-content-center mb-3">
-
-
                                     <Card style={{ width: '25rem' }}>
                                         <Row>
-
-
                                             <Col> {element.userLoginId} </Col>
                                             <Col>
-
                                                 <div >
-                                                    <Button id="collapse" onClick={() => this.collapse()}>Select
-                                                        
-           </Button>
+                                                    <Button id="collapse" onClick={() => this.collapse()}>Select </Button>                                                      
                                                     <Collapse in={this.state.open}>
                                                         <div>
-
                                                             <a class="dropdown-item" href={'/editTweet/' + element.tweetId} >Edit</a>
                                                             <a class="dropdown-item" href="/deleteTweet">Delete</a>
                                                         </div>
                                                     </Collapse>
                                                 </div>
-
-
-
                                             </Col>
-
-
                                         </Row>
                                         <Card.Img variant="top" src={this.state.postImage} />
                                         <Row>
@@ -249,22 +216,17 @@ class View extends React.Component {
                                                         src={this.state.image}
                                                         onClick={() => this.imageChange(element.tweetId)}
                                                         // onClick={this.imageChange(element.tweetId)}
-
                                                         alt="" />
-
                                                 </div>
                                             </Col>
                                             <Col>
                                                 <div>
                                                     <img style={{ width: "25px", height: "20px" }}
                                                         src={this.state.comment} onClick={() => this.collapse()}
-
-
                                                         alt="" />
                                                 </div>
                                             </Col>
                                         </Row>
-
                                         <Card.Body className="likes">
                                             <Row>
                                                 <Col>
@@ -273,24 +235,17 @@ class View extends React.Component {
                                                 <Col>
                                                     <Moment fromNow>{element.dateOfPost}</Moment>
                                                 </Col>
-
                                             </Row>
-
                                             <div>{element.tweetMessage}</div>
-
-
-
                                             <div >
                                                 <Button id="collapse" onClick={() => this.collapse()}>
                                                     ViewAllComments
-           </Button> <br />
+                                                </Button> <br />
                                                 <Collapse in={this.state.open}>
                                                     <div>
-
                                                         {element.replies.map((comment) => {
                                                             return (
                                                                 <div>
-
                                                                     <p>{comment.userLoginId}   {comment.replyText}</p>
                                                                 </div>
                                                             )
@@ -298,51 +253,24 @@ class View extends React.Component {
                                                     </div>
                                                 </Collapse>
                                             </div>
-
-
                                             <div>
                                                 <Form onSubmit={this.handleSubmit(element.tweetId)} id="reply">
                                                     <input placeholder="Add your comment " onChange={this.getReply} />
                                                     <button type="submit">Add</button>
                                                 </Form>
                                             </div>
-
-
-
-
-
-
                                         </Card.Body>
-
-
-
                                     </Card>
-
                                 </div>
-
                             </div>
-
-
-
                         })
                         }
-
-
-
-
-
                     </div>
-
-
-
-
-
                     <div>
                         <Navbar fixed="bottom" bg="dark" className="footer" >
                             Copyright @ 2021
                   </Navbar>
                     </div>
-
                 </div>
             </>
         );

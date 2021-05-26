@@ -20,15 +20,10 @@ class Edit extends React.Component {
     getTweetMessage = (e) => {
         this.setState({ tweetMessage: e.target.value })
         console.log(this.statetweetMessage);
-
-
-
     }
     getHashTag = (e) => {
         this.setState({ hashTag: e.target.value })
     }
-
-
     handleSubmit = tweetId => e => {
         console.log("Inside add post handle submit functin")
         e.preventDefault();
@@ -36,9 +31,6 @@ class Edit extends React.Component {
         this.editPost(tweetId)
     }
     componentDidMount = () => {
-
-
-
         const headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -47,7 +39,6 @@ class Edit extends React.Component {
         console.log(localStorage.getItem('userLoginId'))
         console.log("Token value :**********" + localStorage.getItem('token'));
         axios.get('http://localhost:9500/v1/Tweet/getTweetByUser/' + localStorage.getItem('userLoginId'),
-
             {
                 headers: headers
 
@@ -76,10 +67,8 @@ class Edit extends React.Component {
             "hashTag": this.state.hashTag
 
         }
-
         console.log("Token value :**********" + localStorage.getItem('token'));
         axios.put('http://localhost:9500/v1/Tweet/updateTweet/' + tweetId, editTweets,
-
             {
                 headers: headers
             })
@@ -93,9 +82,6 @@ class Edit extends React.Component {
                 console.error(error);
             })
     }
-
-
-
     render() {
         const { data } = this.state;
         return (
@@ -110,20 +96,13 @@ class Edit extends React.Component {
                         <Navbar.Brand className="view-link1" href="/viewTweet" > View </Navbar.Brand>
                         <Navbar.Brand className="viewall-link1" href="/viewAllTweets" > ViewAll </Navbar.Brand>
                         <Button href="/">Logout</Button> {' '}
-
-
                     </Navbar>
                 </div>
-
                 <div id="uipost">
-
                     {this.state.data.map(element => {
                         return <Form onSubmit={this.handleSubmit(element.tweetId)}>
-
-
-
                             <div >
-                                <input type="text" placeholder="Enter text" id="post" name="post" rows="5" cols="44" value={element.tweetMessage} onChange={this.getTweetMessage} ></input>
+                                <h4 style={{ color: 'brown', }}>Tweet Message:</h4>   <input type="text" placeholder="Enter text" id="post" name="post" rows="5" cols="44" value={element.tweetMessage} onChange={this.getTweetMessage} ></input>
                             </div>
                             <br />
                             <Form.Row>
@@ -132,20 +111,12 @@ class Edit extends React.Component {
                                     <Form.Control placeholder="hashtag" value={element.hashTag} onChange={this.getHashTag} />
                                 </Form.Group>
                             </Form.Row>
-
-
                             <div id="postbutton" >
                                 <button className="btn btn-secondary " id="postb">Edit</button>
-                                {/* <Button variant="primary" id="postb">Post</Button>{' '} */}
-                                {/* <button class="btn btn-primary btn-lock btn-lg "  name="submit" type="submit"  >Post</button> */}
                             </div>
                         </Form>
-
                     })}
                 </div>
-
-
-
                 <div>
                     <Navbar fixed="bottom" bg="dark" className="footer" >
                         Copyright @ 2021

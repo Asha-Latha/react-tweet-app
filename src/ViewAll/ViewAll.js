@@ -180,12 +180,8 @@ class ViewAll extends React.Component {
         return (
             <>
                 <div>
-
                     <Headroom>
-
                         <div className="header">
-
-
                             <Navbar className="color-nav" fixed="top"    >
                                 <h className="tweet">tweet</h> &nbsp;
                     <img style={{ width: "50px", height: "50px" }}
@@ -195,30 +191,16 @@ class ViewAll extends React.Component {
                                 <Navbar.Brand className="viewall-link1" href="/viewTweet" > View </Navbar.Brand>
                                 <Button href="/">Logout</Button> {' '}
                             </Navbar>
-
-
                         </div>
-
                     </Headroom>
                     <div className="contentBody">
-
-
                         {this.state.data.map(element => {
-
-
                             return <div>
-
                                 <div className="col d-flex justify-content-center mb-3">
-
-
                                     <Card style={{ width: '25rem' }}>
                                         <Row>
-
-
                                             <Col> {element.userLoginId} </Col>
                                             {/* <Col><DropDown/></Col> */}
-
-
                                         </Row>
                                         <Card.Img variant="top" src={this.state.postImage} />
                                         <Row>
@@ -230,20 +212,16 @@ class ViewAll extends React.Component {
                                                         // onClick={this.imageChange(element.tweetId)}
 
                                                         alt="" />
-
                                                 </div>
                                             </Col>
                                             <Col>
                                                 <div>
                                                     <img style={{ width: "25px", height: "20px" }}
                                                         src={this.state.comment} onClick={() => this.collapse()}
-
-
                                                         alt="" />
                                                 </div>
                                             </Col>
                                         </Row>
-
                                         <Card.Body className="likes">
                                             <Row>
                                                 <Col>
@@ -252,20 +230,14 @@ class ViewAll extends React.Component {
                                                 <Col>
                                                     <Moment fromNow>{element.dateOfPost}</Moment>
                                                 </Col>
-
                                             </Row>
-
                                             <div>{element.tweetMessage}</div>
-
-
-
                                             <div >
                                                 <Button id="collapse" onClick={() => this.collapse()}>
                                                     ViewAllComments
-           </Button> <br />
+                                                 </Button> <br />
                                                 <Collapse in={this.state.open}>
                                                     <div>
-
                                                         {element.replies.map((comment) => {
                                                             return (
                                                                 <div>
@@ -277,51 +249,24 @@ class ViewAll extends React.Component {
                                                     </div>
                                                 </Collapse>
                                             </div>
-
-
                                             <div>
                                                 <Form onSubmit={this.handleSubmit(element.tweetId)} id="reply">
                                                     <input placeholder="Add your comment " onChange={this.getReply} />
                                                     <button type="submit">Add</button>
                                                 </Form>
                                             </div>
-
-
-
-
-
-
                                         </Card.Body>
-
-
-
                                     </Card>
-
                                 </div>
-
                             </div>
-
-
-
                         })
                         }
-
-
-
-
-
                     </div>
-
-
-
-
-
                     <div>
                         <Navbar fixed="bottom" bg="dark" className="footer" >
                             Copyright @ 2021
                   </Navbar>
                     </div>
-
                 </div>
             </>
         );

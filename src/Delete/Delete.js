@@ -14,9 +14,6 @@ class Edit extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-
-
     handleSubmit(e) {
         console.log("Inside add post handle submit functin")
         e.preventDefault();
@@ -31,10 +28,8 @@ class Edit extends React.Component {
         }
         console.log('delete  Tweet')
         // let headers = new Headers();
-
         console.log("Token value :**********" + localStorage.getItem('token'));
         axios.delete('http://localhost:9500/v1/Tweet/' + localStorage.getItem('tweetId'),
-
             {
                 headers: headers
             })
@@ -48,15 +43,10 @@ class Edit extends React.Component {
                 console.error(error);
             })
     }
-
-
-
     render() {
-        // const imageURL = logo;
         return (
             <>
                 <div className="header">
-
                     <Navbar className="color-nav" fixed="top"    >
                         <h className="tweet">Tweet</h> &nbsp;
                     <img style={{ width: "50px", height: "50px" }}
@@ -65,38 +55,25 @@ class Edit extends React.Component {
                         <Navbar.Brand className="view-link1" href="/post" > View </Navbar.Brand>
                         <Navbar.Brand className="viewall-link1" href="/view" > ViewAll </Navbar.Brand>
                         <Button href="/">Logout</Button> {' '}
-
-
                     </Navbar>
                 </div>
-
                 <div id="uipost">
                     <Form onSubmit={this.handleSubmit}>
-
-
-
+                        Post Your Tweet!!
                         <div >
                             <textarea id="post" name="post" rows="5" cols="44" onChange={this.getTweetMessage} ></textarea>
                         </div>
                         <br />
                         <Form.Row>
                             <Form.Group controlId="formGridCity" >
-
-                                <Form.Control placeholder="hashtag" onChange={this.getHashTag} />
+                                <Form.Control placeholder="#hash_tag" onChange={this.getHashTag} />
                             </Form.Group>
                         </Form.Row>
-
-
                         <div id="postbutton" >
                             <button className="btn btn-secondary " id="postb">Post</button>
-                            {/* <Button variant="primary" id="postb">Post</Button>{' '} */}
-                            {/* <button class="btn btn-primary btn-lock btn-lg "  name="submit" type="submit"  >Post</button> */}
                         </div>
                     </Form>
                 </div>
-
-
-
                 <div>
                     <Navbar fixed="bottom" bg="dark" className="footer" >
                         Copyright @ 2021

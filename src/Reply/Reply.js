@@ -8,15 +8,9 @@ import axios from 'axios';
 import '../App.css';
 
 const Reply = () => (
-
-
-
-
-
   <div>
     <div>
       <a href="#toggler" id="toggler">View All Comments</a>
-
       <UncontrolledCollapse toggler="#toggler">
         <div>
           <span class="font-weight-bold">username </span>
@@ -28,7 +22,6 @@ const Reply = () => (
         </div>
       </UncontrolledCollapse>
     </div>
-
   </div>
 );
 

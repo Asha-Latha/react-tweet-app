@@ -53,23 +53,6 @@ class Registration extends React.Component {
     if (mailId.indexOf(".") === -1) {
         errors.push("Email should contain at least one dot");
     }
-
-    // if (!validator.isStrongPassword(passWord,
-    //   {
-    //     minLength: 6, minLowercase: 1,
-    //     minUppercase: 1, minNumbers: 1, minSymbols: 1
-    //   }
-    // )) {
-    //   alert("Password is not strong")
-    //   errors.push("Password is not strong")
-    // }
-    // if (passWord != confirmPassword) {
-    //   alert("Password and Confirm Password doesnot match")
-    //   errors.push("Password and Confirm Password doesnot match");
-
-    // }
-   
-
     if(passWord.match(passw) == false ){
       alert("Password should contain at least one numeric digit, one uppercase and one lowercase letter ")
       errors.push("Password should contain at least one numeric digit, one uppercase and one lowercase letter ")
@@ -141,9 +124,6 @@ class Registration extends React.Component {
     }
     this.register()
   }
-
-
-
   register = () => {
     const errors = [];
     console.log('user registration')
@@ -180,25 +160,12 @@ class Registration extends React.Component {
       <div
         className="regpage"  >
         <div id="ui">
-          {/* <span className="block-example border border-dark"> */}
-
           <div className="col d-flex justify-content-center " >
             <h2 style={{marginTop: '-78px', position: 'absolute'}}>Register</h2>
-            {/* <div id="errormsg" style={{position: 'absolute',marginTop: '-110px', color: 'red'}}>  {errors.map(error => (
-               <p data-testid='p' key={error}>Error: {error}</p>
-               ))}</div> */}
-
             <Form onSubmit={this.handleSubmit} >
-
-              {/* {errors.message}
-              {errors.map(d => <div id="invalid">{d.message}</div>)} */}
-
-
               <Row>
                 <Col>
                   <Form.Label>First Name</Form.Label>
-
-
                   <Form.Control name="firstName" placeholder="Enter First name" onChange={this.getFirstName} />
                 </Col>
                 <Col>
@@ -211,7 +178,6 @@ class Registration extends React.Component {
                 <Col>
                   <Form.Label>Email address</Form.Label>
                   <InputGroup className="mb-2 mr-sm-2">
-
                     <InputGroup.Prepend>
                       <InputGroup.Text>@</InputGroup.Text>
                     </InputGroup.Prepend>
@@ -221,21 +187,17 @@ class Registration extends React.Component {
                 <Col>
                   <Form.Label>Contact Number</Form.Label>
                   <InputGroup className="mb-2 mr-sm-2">
-
                     <InputGroup.Prepend>
                       <InputGroup.Text><i class="material-icons">phone</i></InputGroup.Text>
                     </InputGroup.Prepend>
                     <Form.Control name="contactNumber" placeholder="Enter contact Number" onChange={this.getcontactNumber} />
                   </InputGroup>
                 </Col>
-
               </Row>
               <Row>
                 <Col>
                   <Form.Label>Login Id</Form.Label>
-
                   <InputGroup className="mb-2 mr-sm-2">
-
                     <InputGroup.Prepend>
                       <InputGroup.Text><i class="material-icons">person</i></InputGroup.Text>
                     </InputGroup.Prepend>
@@ -243,14 +205,10 @@ class Registration extends React.Component {
                   </InputGroup>
                 </Col>
               </Row>
-
-
-
               <Row>
                 <Col>
                   <Form.Label>Password</Form.Label>
                   <InputGroup className="mb-2 mr-sm-2">
-
                     <InputGroup.Prepend>
                       <InputGroup.Text><i class="material-icons">visibility</i></InputGroup.Text>
                     </InputGroup.Prepend>
@@ -260,7 +218,6 @@ class Registration extends React.Component {
                 <Col>
                   <Form.Label>Confirm Password</Form.Label>
                   <InputGroup className="mb-2 mr-sm-2">
-
                     <InputGroup.Prepend>
                       <InputGroup.Text><i class="material-icons">lock</i></InputGroup.Text>
                     </InputGroup.Prepend>
@@ -269,11 +226,9 @@ class Registration extends React.Component {
                 </Col>
               </Row>
               <div ><br />
-
                 <div >
                   <button  id="regbutton" >SignUp</button>
                 </div>
-
                 <div>
                   <Row>
                     <Col>
@@ -284,12 +239,8 @@ class Registration extends React.Component {
                     </Col>
                   </Row>
                 </div>
-
-
               </div>
-
             </Form>
-
           </div>
           {/* </span> */}
         </div>

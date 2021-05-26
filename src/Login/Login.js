@@ -33,13 +33,17 @@ class Login extends React.Component {
   handleSubmit(e) {
     console.log("Inside handle submit functin")
     e.preventDefault();
+        const { loginId, passWord } = this.state;
+    if(loginId && passWord)
+    this.userLogin();
+    else alert('Enter loginId and Password')
     // const { loginId, passWord } = this.state;
     // const errors = this.validate(loginId, passWord);
     // if (errors.length > 0) {
     //   this.setState({ errors });
     //   return;
     // }
-    this.userLogin()
+    
   }
   getPassWord = (e) => {
 
@@ -52,31 +56,19 @@ class Login extends React.Component {
     this.setState({ loginId: e.target.value })
     // console.log(this.state.mailId)
     // console.log(e.target.value);
-
   }
-
-
   userLogin = async () => {
-
-
-
     console.log(this.state.loginId);
     console.log("  " + this.state.passWord);
-
     let credentials = btoa(this.state.loginId + ':' + this.state.passWord)
-
   //  const data1 = await axios.get('http://localhost:9500/v1/User/register?loginId='+this.state.loginId)
-
     const data = await axios.get('http://localhost:9500/v1/User/loginUsers', {
       headers: {
         "Authorization": "Basic " + credentials
       }
     }
-
     )
-
       .then(res => {
-
         localStorage.setItem('token', res.data.token);
         console.log("Token value is:")
         console.log("Token value :**********" + localStorage.getItem('token'));
@@ -90,11 +82,8 @@ class Login extends React.Component {
           console.log(error.res.data.message);
           alert(error.message)
           // errors.push(error.message)
-
         }
       );
-
-
   }
 
   render() {

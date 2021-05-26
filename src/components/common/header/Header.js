@@ -1,7 +1,7 @@
 import React from   'react';
 import Navbars from '../navbar/Navbars';
-
 import logo from '../logo.png';
+
 export class  Header extends React.Component {
     constructor(props){
         super(props);
@@ -24,11 +24,8 @@ export class  Header extends React.Component {
                           <Navbars/>
                        </section>
                        <hr className="header-top__seperator" />
-                    
                     </section>
                 </section>
-                
-    
             </section>
         )
     }
